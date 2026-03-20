@@ -1,0 +1,392 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Times New Roman", Times, serif;
+}
+html {
+  height: 100%;
+}
+body {
+  background-color: #212121;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+header {
+  background-color: #181818;
+  color: #f8f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  padding: 1rem;
+  width: 100%;
+  border-bottom: 2px solid whitesmoke;
+}
+footer {
+  background-color: #181818;
+  color: #f8f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1rem;
+  padding: 0.6rem;
+  width: 100%;
+  border-top: 2px solid whitesmoke;
+  margin-top: auto;
+}
+.App {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  margin-top: 2rem;
+}
+.App h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #f2f2f2;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
+.App h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #eceff1;
+}
+.App form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #181818;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  min-width: 400px;
+  max-width: 90%;
+  min-height: fit-content;
+  padding-block: 2rem;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.App form label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  color: #ededed;
+}
+.App form label input {
+  outline: none;
+  border: none;
+  color: #f0f8ff;
+  border-bottom: 2px solid black;
+  background-color: #212121;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+.App form label input:hover {
+  border-bottom: 2px solid #fff8dc;
+  opacity: 0.8;
+}
+.App form label input:focus {
+  box-shadow: 0 0 5px #fff8dc;
+}
+.App form label input::placeholder {
+  color: #fafafa;
+  opacity: 0.7;
+}
+.App form button,
+.App > button,
+.post-card button {
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  background-color: #b0bec5;
+  color: #181818;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.App form button:hover,
+.App > button:hover,
+.post-card button:hover {
+  border: 1px solid white;
+  transform: scale(1.05);
+}
+.App form button:active,
+.App > button:active,
+.post-card button:active {
+  transform: scale(0.95);
+}
+.App form select {
+  width: 100%;
+  padding: 10px;
+  background-color: #1c1c1c;
+  color: #ededed;
+  border: 1px solid #fff8dc;
+  border-radius: 6px;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+}
+.App form select:hover {
+  background-color: #2a2a2a;
+}
+.App form select:focus {
+  box-shadow: 0 0 5px #fff8dc;
+}
+.App form select option {
+  background-color: #1c1c1c;
+  color: #fafafa;
+}
+.Analyze {
+  color: #ff5700;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.all-posts {
+  display: grid;
+  padding-inline: 1.5rem;
+  flex-direction: column;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.post-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  max-width: 90vw;
+  color: whitesmoke;
+  height: 100%;
+  background-color: #2a2a2a;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.post-card:hover,
+.App form:hover,
+.comments-section:hover,
+.Analyze h1:hover,
+.Insights h2:hover {
+  opacity: 0.9;
+  transform: translateY(-8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: scale(1.01);
+}
+header:hover,
+footer:hover {
+  opacity: 0.8;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-cont {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.post-card h3 {
+  background-color: #1c1c1c;
+  border-radius: 10px;
+  padding: 0.5rem;
+}
+.post-card span {
+  font-weight: bold;
+  color: #ededed;
+}
+.Insights {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+.Analyze h1,
+.Insights h2 {
+  width: 100%;
+  background-color: #1c1c1c;
+  color: whitesmoke;
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid whitesmoke;
+  border-radius: 10px;
+  max-width: fit-content;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.graphs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  gap: 10rem;
+  margin: 1rem;
+}
+.comments-section {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: center;
+  align-items: self-start;
+  background-color: #2a2a2a;
+  color: #f5f5dc;
+  border-radius: 10px;
+  margin: 1rem;
+  line-height: 1.5rem;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+.comments-section div {
+  flex: 1;
+  padding: 1rem;
+}
+.comments-section div div small {
+  color: #f2f2f2;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+.back-btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.back-btn {
+  max-width: max-content;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  margin-top: 1.2rem;
+  margin-left: 1.2rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.4rem;
+}
+.back-btn:hover {
+  opacity: 0.8;
+  background-color: white;
+  color: #181818;
+  transform: scale(1.05);
+}
+.ds-controls {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+}
+
+.ds-tab-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ds-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  background: transparent;
+  color: whitesmoke;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.ds-tab:hover {
+  background: rgba(97, 218, 251, 0.1);
+  border-color: #61dafb;
+}
+
+.ds-tab.active {
+  background: rgba(97, 218, 251, 0.15);
+  border-color: #61dafb;
+  color: #61dafb;
+}
+
+.ds-badge {
+  font-size: 0.68rem;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(97, 218, 251, 0.15);
+  color: #61dafb;
+  font-family: monospace;
+  letter-spacing: 0.03em;
+}
+
+.ds-small-input {
+  padding: 7px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+  color: whitesmoke;
+  font-size: 0.82rem;
+  width: 110px;
+  outline: none;
+}
+
+.ds-small-input:focus {
+  border-color: #61dafb;
+}
+
+.ds-source-label {
+  font-size: 0.82rem;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+.ds-source-label strong {
+  color: #61dafb;
+  font-family: monospace;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
